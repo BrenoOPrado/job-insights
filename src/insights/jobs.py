@@ -64,4 +64,9 @@ def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
     list
         List of jobs with provided job_type
     """
-    raise NotImplementedError
+    all_jobs_by_type = []
+    for item in jobs:
+        if item["job_type"] == job_type:
+            all_jobs_by_type.append(item)
+    return all_jobs_by_type
+    # raise NotImplementedError
