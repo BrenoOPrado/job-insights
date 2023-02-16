@@ -17,10 +17,13 @@ def read(path: str) -> List[Dict]:
     list
         List of rows as dicts
     """
-    with open("../../data/jobs.csv") as file:
-        result = csv.reader(file, delimiter=",", quotechar='"')
+    with open(path) as file:
+        csv_file = csv.DictReader(file)
+        result = []
+        for item in csv_file:
+            result.append(item)
         return result
-    raise NotImplementedError
+    # raise NotImplementedError
 
 
 def get_unique_job_types(path: str) -> List[str]:
