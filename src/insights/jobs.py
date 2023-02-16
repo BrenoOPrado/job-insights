@@ -1,5 +1,6 @@
 from functools import lru_cache
 from typing import List, Dict
+import csv
 
 
 @lru_cache
@@ -16,6 +17,9 @@ def read(path: str) -> List[Dict]:
     list
         List of rows as dicts
     """
+    with open("../../data/jobs.csv") as file:
+        result = csv.reader(file, delimiter=",", quotechar='"')
+        return result
     raise NotImplementedError
 
 
